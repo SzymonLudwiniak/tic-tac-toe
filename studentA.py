@@ -1,8 +1,8 @@
-b = [[' ',' ',' ',' ',' '],
-     [' ',' ',' ',' ',' '],
-     [' ',' ',' ',' ',' '],
-     [' ',' ',' ',' ',' '],
-     [' ',' ',' ',' ',' ']]
+b = [[' ',' ',' ',' ','o'],
+     [' ',' ',' ',' ','x'],
+     [' ',' ',' ',' ','x'],
+     [' ',' ',' ',' ','x'],
+     [' ',' ',' ',' ','x']]
 
 def print_board(board):
     for y in range(0, 5):
@@ -14,33 +14,33 @@ def print_board(board):
     print('--------------------------')
 
 def is_game_over(board):
-    for y in range(0, 5):
-        if all(ele == 'o' for ele in board[y]):
-            return 'o'
 
     flag = True
-    for i in range(0, 4):
-        if board[i][i] is not board[i+1][i+1]:
+    for i in range(0, 5):
+        if board[i][i] is not board[0][0]:
             flag = False
     if flag is True:
-        return board[2][2]
+        return True
     flag = True
-    for i in range(0, 4):
-        if board[4-i][i] is not board[4-i-1][i+1]:
+    for i in range(0, 5):
+        if board[i][i] is not board[4][0]:
             flag = False
     if flag is True:
-        return board[2][2]
+        return True
     
 
     for x in range(0, 5):
         flag = True
-        for y in range(0, 4):
-            if board[y][x] != board[y+1][x]:
+        for y in range(0, 5):
+            if board[y][x] != board[0][x]:
                 flag = False
-        if flag is True and board[x][0] != ' ':
-            return board[x][0]
+        if flag is True and board[0][x] != ' ':
+            return True
+    
+    for y in range(0, 5):
+        return all(board[y][0] == elem for elem in board[y])
 
-    return ' '
+print(is_game_over(b))
 
 def new_board():
     return [[' ',' ',' ',' ',' '],
