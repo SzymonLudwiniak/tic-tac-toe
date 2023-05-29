@@ -1,7 +1,6 @@
 promt_prefix = "[TIC TAC TOE] "
 
-def ai_move():
-    global board
+def ai_move(board):
 
     for Y in range(0,4):
         row = board[Y]
@@ -48,9 +47,14 @@ def ai_move():
     
 
 
-def get_user_move(X, Y):
-    global board
-    board[X][Y] = "o"
+def get_user_move(board):
+
+    my_print("Choose X position: ")
+    X = input()
+
+    my_print("Choose O position: ")
+    Y = input()
+    board[Y][X] = "o"
 
 
 def is_player_starting():
@@ -74,6 +78,3 @@ def my_print(message):
 
 def my_println(message):
     print(promt_prefix + message)
-
-
-is_player_starting()
