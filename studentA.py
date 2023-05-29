@@ -17,7 +17,7 @@ def is_game_over(board):
     if flag and board[0][0] != ' ':
         return True
 
-    #second diagonal
+    # #second diagonal
     flag = True
     for i in range(0, 5):
         if board[i][i] != board[4][0]:
@@ -35,16 +35,21 @@ def is_game_over(board):
             return True
     
     for y in range(0, 5):
-        result = (board[y][0] == elem for elem in board[y])
-        if result and board[y][0] != ' ':
+        flag = True
+        for x in range(0, 5):
+            if board[y][x] != board[y][0]:
+                flag = False
+        if flag and board[y][0] != ' ':
             return True
 
     return False
 
 
 def new_board():
-    return [[' ',' ',' ',' ',' '],
+    return [['o',' ',' ',' ',' '],
             [' ',' ',' ',' ',' '],
             [' ',' ',' ',' ',' '],
             [' ',' ',' ',' ',' '],
             [' ',' ',' ',' ',' ']]
+
+print(is_game_over(new_board()))

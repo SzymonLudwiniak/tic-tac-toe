@@ -1,4 +1,4 @@
-import is_game_over from studentA
+from studentA import is_game_over
 
 def announce_outcome(board, players_move):
     
