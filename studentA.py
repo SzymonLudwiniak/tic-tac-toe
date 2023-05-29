@@ -7,11 +7,12 @@ def print_board(board):
         print("")
     print('--------------------------')
 
+
 def is_game_over(board):
     # first diagonal
     flag = True
     for i in range(0, 5):
-        if board[i][i] is not board[0][0]:
+        if board[i][i] != board[0][0]:
             flag = False
     if flag and board[0][0] != ' ':
         return True
@@ -19,7 +20,7 @@ def is_game_over(board):
     #second diagonal
     flag = True
     for i in range(0, 5):
-        if board[i][i] is not board[4][0]:
+        if board[i][i] != board[4][0]:
             flag = False
     if flag and board[4][0] != ' ':
         return True
@@ -39,6 +40,7 @@ def is_game_over(board):
             return True
 
     return False
+
 
 def new_board():
     return [[' ',' ',' ',' ',' '],
