@@ -1,9 +1,3 @@
-b = [[' ',' ',' ',' ','o'],
-     [' ',' ',' ',' ','x'],
-     [' ',' ',' ',' ','x'],
-     [' ',' ',' ',' ','x'],
-     [' ',' ',' ',' ','x']]
-
 def print_board(board):
     for y in range(0, 5):
         print('--------------------------')
@@ -19,18 +13,18 @@ def is_game_over(board):
     for i in range(0, 5):
         if board[i][i] is not board[0][0]:
             flag = False
-    if flag:
+    if flag and board[0][0] != ' ':
         return True
 
-    # second diagonal
+    #second diagonal
     flag = True
     for i in range(0, 5):
         if board[i][i] is not board[4][0]:
             flag = False
-    if flag:
+    if flag and board[4][0] != ' ':
         return True
     
-    # columns, idk if u can do this in smarter way but at least works
+    #columns, idk if u can do this in smarter way but at least works
     for x in range(0, 5):
         flag = True
         for y in range(0, 5):
@@ -39,15 +33,12 @@ def is_game_over(board):
         if flag and board[0][x] != ' ':
             return True
     
-    # check if all elements
     for y in range(0, 5):
-        result = board[y][0] == elem for elem in board[y])
+        result = (board[y][0] == elem for elem in board[y])
         if result and board[y][0] != ' ':
             return True
 
     return False
-
-print(is_game_over(b))
 
 def new_board():
     return [[' ',' ',' ',' ',' '],

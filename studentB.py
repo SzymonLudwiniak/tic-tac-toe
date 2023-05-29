@@ -74,6 +74,3 @@ def my_print(message):
 
 def my_println(message):
     print(promt_prefix + message)
-
-
-is_player_starting()
