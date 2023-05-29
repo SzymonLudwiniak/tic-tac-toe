@@ -10,13 +10,14 @@ def ai_move(board):
             board[Y] = ["x" if item == " " else item for item in board[Y]]
             return
 
-    for X in range(0,4):
-        col = board[:,X]
-        xcount = col.count("x")
-        ocount = col.count("y")
-        if ocount == 4 and xcount == 0:
-            board[Y] = ["x" if item == " " else item for item in board[Y]]
-            return
+    for Y in range(0,4):
+        for X in range(0,4):
+            col = board[Y][X]
+            xcount = col.count("x")
+            ocount = col.count("y")
+            if ocount == 4 and xcount == 0:
+                board[Y] = ["x" if item == " " else item for item in board[Y]]
+                return
 
     for D in range(0,4):
         xcount = 0
